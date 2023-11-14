@@ -13,6 +13,9 @@ public:
     void push_back(int value);
     void push_back_better(int value);
     void print_vector();
+
+    VectorInt& operator=(const VectorInt& src);
+
 private:
     int m_size;
     int* mp_Data;

@@ -93,3 +93,23 @@ void VectorInt::push_back_better(int value)
     mp_Data[m_size] = value;
     m_size++;
 }
+
+VectorInt& VectorInt::operator=(const VectorInt& src)
+{
+    if (this != &src)
+    {
+        delete[] mp_Data; 
+
+        m_size = src.m_size;  
+        m_capacity = src.m_capacity;
+
+        mp_Data = new int[m_size]; 
+
+        for (int i = 0; i < m_size; i++) 
+        {
+            mp_Data[i] = src.mp_Data[i];
+        }
+    }
+    return *this;
+}
+

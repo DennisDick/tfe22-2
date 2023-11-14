@@ -3,10 +3,12 @@
 
 #include "vectorint.hpp"
 
-#define NUMBER_OF_VAlUES 2000
+#define NUMBER_OF_VAlUES 200
 
 auto main(int argc, char **argv) -> int
 {
+
+    // ist gleich operator
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
@@ -48,7 +50,7 @@ auto main(int argc, char **argv) -> int
     auto end = std::chrono::system_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
 
-    fmt::print("time needed for pushing back 100 Values (trivial): {}\n", elapsed);
+    fmt::print("time needed for pushing back {} Values (trivial): {}\n", NUMBER_OF_VAlUES, elapsed);
 
     VectorInt data3(100);
 
@@ -62,7 +64,24 @@ auto main(int argc, char **argv) -> int
     auto end1 = std::chrono::system_clock::now();
     auto elapsed1 = std::chrono::duration_cast<std::chrono::nanoseconds>(end1 - start1);
 
-    fmt::print("time needed for pushing back 100 Values (optimized): {}\n", elapsed1);
+    fmt::print("time needed for pushing back {} Values (optimized): {}\n", NUMBER_OF_VAlUES, elapsed1);
+
+    fmt::print("\nNew Task\n");
+
+    VectorInt Vector_old(10);
+    VectorInt Vector_new(99);
+
+    Vector_old.print_vector();
+
+    Vector_new.print_vector();
+
+    Vector_new = Vector_old;
+
+    
+    Vector_old.print_vector();
+    Vector_new.print_vector();
+    
+
 
     return 0; /* exit gracefully*/
 
