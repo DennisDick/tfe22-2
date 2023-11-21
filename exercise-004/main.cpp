@@ -73,5 +73,14 @@ auto main(int argc, char **argv) -> int
     data.push_back(12);
     data.print();
 
+    fmt::println("\n\nTesting Copy CTOR");
+    VectorInt data2(data);
+    data2.print();
+    data2.push_back(13);
+    fmt::println("Testing assignment operator");
+    VectorInt data3(99);
+    data3 = data2;
+    data3.print();
+
     return 0; /* exit gracefully*/
 }

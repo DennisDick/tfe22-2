@@ -1,8 +1,7 @@
 cmake_minimum_required (VERSION 3.10.2)
 
 # Set the project name to your project name, template isn't very descriptive
-project (exercise-003 VERSION 0.0.2 LANGUAGES CXX)
-
+project (example-001 VERSION 0.0.1 LANGUAGES CXX)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -16,9 +15,8 @@ find_package(CLI11 CONFIG REQUIRED)
 find_package(Catch2 3 REQUIRED)
 
 # add the executable
-add_executable(${PROJECT_NAME} main.cpp vectorint.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
 # Add libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
-                                        fmt::fmt
-)
+                                        fmt::fmt)
