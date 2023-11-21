@@ -3,18 +3,14 @@
 
 #include "vectorint.hpp"
 
-#define NUMBER_OF_VAlUES 200
-
 auto main(int argc, char **argv) -> int
 {
-
-    // ist gleich operator
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
      */
-    //fmt::print("Hello, World!\n");
+    fmt::print("Hello, World!\n");
 
     VectorInt data(20);
     data.print();
@@ -77,6 +73,14 @@ auto main(int argc, char **argv) -> int
     data.push_back(12);
     data.print();
 
-    return 0; /* exit gracefully*/
+    fmt::println("\n\nTesting Copy CTOR");
+    VectorInt data2(data);
+    data2.print();
+    data2.push_back(13);
+    fmt::println("Testing assignment operator");
+    VectorInt data3(99);
+    data3 = data2;
+    data3.print();
 
+    return 0; /* exit gracefully*/
 }

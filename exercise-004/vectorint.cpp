@@ -2,10 +2,7 @@
 #include <fmt/format.h>
 
 
-VectorInt::VectorInt(int size) 
-{
-    m_size  = size;
-    m_capacity = m_size;
+VectorInt::VectorInt(int size) {
     mp_Data = new int[size];
     m_size = size;
     for(int i = 0; i<m_size; i++) {
@@ -13,10 +10,8 @@ VectorInt::VectorInt(int size)
     }
 }
 
-VectorInt::~VectorInt() 
-{
-    if(mp_Data != nullptr) 
-    {
+VectorInt::~VectorInt() {
+    if(mp_Data != nullptr) {
         delete [] mp_Data;
     }
     mp_Data = nullptr;
@@ -64,4 +59,24 @@ void VectorInt::print() {
        fmt::print("{}, ",mp_Data[i]);
     }
     fmt::print("\n");
+}
+
+VectorInt::VectorInt(const VectorInt& src) : m_size(src.m_size), mp_Data(new int[src.m_size])
+{
+    for (int i = 0; i < m_size; i++)
+    {
+       mp_Data[i] = src.mp_Data[i];
+    }
+}
+
+VectorInt& VectorInt::operator=(const VectorInt& src)
+{
+    delete[] mp_Data;
+    m_size = src.m_size;
+    mp_Data = new int[src.m_size];
+    for (int i = 0; i < m_size; i++)
+    {
+       mp_Data[i] = src.mp_Data[i];
+    }
+    return *this;
 }
